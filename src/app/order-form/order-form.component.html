@@ -1,0 +1,31 @@
+<nav>
+    <a routerLink="/order" routerLinkActive="active">Order</a>
+    <a routerLink="/allOrders" routerLinkActive="active" (click)="toAllOrders()">Orders from all customers</a>
+</nav>
+
+<h3 class="order">User: {{user}}</h3>
+
+<form>
+    <div class="row">
+        <div class="col">
+            <label for="gtin">Gtin</label>
+            <input required minlength="1" maxlength="20" ngModel name="gtin" id="gtin" type="number" #gtin="ngModel"
+                class="form-control">
+
+        </div>
+        <div class="col">
+            <label for="quantity">Quantity</label>
+            <input required minlength="1" maxlength="4" ngModel name="quantity" id="quantity" type="number"
+                #quantity="ngModel" class="form-control">
+        </div>
+    </div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <div align="center">
+        <button class="btn btn-primary" [disabled]="gtin.invalid || quantity.invalid" (click)="sendOrder()">Add</button>
+        <div *ngIf="show">
+            <h3 style="color: green;">Data has been added!</h3>
+        </div>
+    </div>
+</form>

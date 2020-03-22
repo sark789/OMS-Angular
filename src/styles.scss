@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(https://unpkg.com/bootstrap@4.1.0/dist/css/bootstrap.min.css);
+
+body {padding: 20px;}
+
+.form-control.ng-touched.ng-invalid {
+    border: 2px solid red;
+}
+
+a:link {
+    margin-left: 30px;
+    color: #0A58A5;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  h3.order {
+    padding-top: 50px;
+  }
+
+
+  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+

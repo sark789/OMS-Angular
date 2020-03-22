@@ -1,0 +1,42 @@
+<!-- The for attribute specifies which form element a label is bound to. -->
+<!-- form-control class tracks state changes and the validity of input values-->
+<!-- required: for validation (min,max chars in input...)-->
+<!-- alert-danger puts it in a red box-->
+<!-- *ngIf="username.errors.minlength" if this is true pop alertbox-->
+<nav>
+    <a routerLink="/registration" routerLinkActive="active">Register</a>
+    <a routerLink="/login" routerLinkActive="active">Login</a>
+</nav>
+
+<form>
+    <div align="center">
+        <div class="form-group">
+            <div class="col-md-4">
+                <label for="username">Username</label>
+                <input required minlength="3" maxlength="17" ngModel name="username" id="username" #username="ngModel"
+                    type="text" class="form-control">
+                <div class="alert alert-danger" *ngIf="username.touched && !username.valid">
+                    <div *ngIf="username.errors.required">Username is required.</div>
+                    <div *ngIf="username.errors.minlength">Username should be minimum 3 characters</div>
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label for="Password">Password</label>
+                <input required minlength="7" maxlength="17" ngModel name="password" id="Password" type="password"
+                    #password="ngModel" class="form-control">
+                <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+                    <div *ngIf="password.errors.required">Password is required.</div>
+                    <div *ngIf="password.errors.minlength">Password should be minimum 7 characters</div>
+                </div>
+            </div>
+        </div>
+        <button [disabled]="username.invalid || password.invalid" (click)="postDataToServer()"
+            class="btn btn-primary">Register</button>
+        <div *ngIf="show">
+            <h3>User has been registered!</h3>
+        </div>
+    </div>
+</form>

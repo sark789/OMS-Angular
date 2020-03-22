@@ -1,0 +1,10 @@
+<nav>
+    <a routerLink="/order" routerLinkActive="active" (click)="goToOrder()">Order</a>
+    <a routerLink="/allOrders" routerLinkActive="active">Orders from all customers</a>
+</nav>
+<div *ngFor="let customer of customers">
+    <ul>
+        <li>ID : {{customer.omsId}} | GTIN: {{customer.products.gtin}} | QUANTITY: {{customer.products.quantity}}</li>
+
+    </ul>
+</div>
